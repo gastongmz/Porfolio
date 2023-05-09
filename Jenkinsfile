@@ -17,7 +17,7 @@ pipeline {
 			 stage('Build Prod') { 
 			  		steps { 
 			  			echo 'Compilando Prod...' 
-			  		bat "npm run build cross-env BUILD_PATH=\"%DEPLOY_PATH_SITIOS_WEB%\\TPO_PROD\""	
+			  		bat "npm run build cross-env BUILD_PATH=\"%DEPLOY_PATH_SITIOS_WEB%\\TPO_PROD"	
 			  	}
 			 }
 			
