@@ -4,12 +4,14 @@ import { Grid } from '@material-ui/core'
 import { Link, Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { AiOutlineAlignRight, AiOutlineHome, AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineSend, AiOutlineCheckCircle } from 'react-icons/ai';
 
 import './LoginPage.css'
 import { SingleBlog } from '../../components'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { blogData } from '../../data/blogData'
 import { headerData } from '../../data/headerData'
+import {loginData} from '../../data/loginData'
 
 function LoginPage() {
     
@@ -60,6 +62,27 @@ function LoginPage() {
                 width:'350px',
             },
         },*/
+        input: {
+          border: `4px solid ${theme.primary80}`,
+          backgroundColor: `${theme.secondary}`,
+          color: `${theme.tertiary}`,
+          fontFamily: 'var(--primaryFont)',
+          fontWeight: 500,
+          transition: 'border 0.2s ease-in-out',
+          '&:focus': {
+              border: `4px solid ${theme.primary600}`,
+          },
+      },
+      label: {
+        backgroundColor: `${theme.secondary}`,
+        color: `${theme.primary}`,
+        fontFamily: 'var(--primaryFont)',
+        fontWeight: 600,
+        fontSize: '0.9rem',
+        padding: '0 5px',
+        transform: 'translate(25px,50%)',
+        display: 'inline-flex',
+    },
         home: {
             color: theme.secondary,
             position: 'absolute',
@@ -88,22 +111,14 @@ function LoginPage() {
    // React States
    const [errorMessages, setErrorMessages] = useState({});
    const [isSubmitted, setIsSubmitted] = useState(false);
+   const [success, setSuccess] = useState(false);
  
    // User Login info
-   const database = [
-     {
-       username: "gaston.alejandro.gmz@gmail.com",
-       password: "pass1"
-     },
-     {
-       username: "user2",
-       password: "pass2"
-     }
-   ];
+   const database = loginData;
  
    const errors = {
-     uname: "invalid username",
-     pass: "invalid password"
+     uname: "Usuario invalido",
+     pass: "Contraseña invalida"
    };
  
    const handleSubmit = (event) => {
@@ -154,26 +169,84 @@ function LoginPage() {
  
    // JSX code for login form
    const renderForm = (
-     <div className="form">
-       <form onSubmit={handleSubmit}>
-         <div className="input-container">
-           <label>Username </label>
-           <input type="text" name="uname" required  value={'gaston.alejandro.gmz@gmail.com'}/>
-           {renderErrorMessage("uname")}
-         </div>
-         <div className="input-container">
-           <label>Password </label>
-           <input type="password" name="pass" required  value={'pass1'}/>
-           {renderErrorMessage("pass")}
-         </div>
-         <div className="button-container">
-           <input type="submit" />
-         </div>
-       </form>
-     </div>
+    <div className='login-form'>
+    <form onSubmit={handleSubmit}>
+        <div className='input-container'>
+          
+            <label htmlFor='Name' className={classes.label}>
+                Usuario
+            </label>           
+            <input
+                placeholder='Nombre'
+                value={'gaston.alejandro.gmz@gmail.com'}
+               
+                type='text'
+                name='uname'
+                className={`form-input ${classes.input}`}
+            />
+             {renderErrorMessage("uname")}
+        </div>
+        <div className='input-container'>
+            <label htmlFor='Surname' className={classes.label}>
+                Contraseña
+            </label>            
+            <input
+                placeholder='Apellido'
+                required  
+                value={'pass1'}
+              
+                type='password'
+                name='pass'
+                className={`form-input ${classes.input}`}
+            />
+            {renderErrorMessage("pass")}
+        </div>
+      
+ 
+
+        <div className='submit-btn'>
+            <button
+                type='submit'
+                className={classes.submitBtn}
+            >
+                <p>{!success ? 'Login' : 'Login'}</p>
+                <div className='submit-icon'>
+                    <AiOutlineSend
+                        className='send-icon'
+                        style={{
+                            animation: !success
+                                ? 'initial'
+                                : 'fly 0.8s linear both',
+                            position: success
+                                ? 'absolute'
+                                : 'initial',
+                        }}
+                    />
+                    <AiOutlineCheckCircle
+                        className='success-icon'
+                        style={{
+                            display: !success
+                                ? 'none'
+                                : 'inline-flex',
+                            opacity: !success ? '0' : '1',
+                        }}
+                    />
+                </div>
+            </button>
+        </div>
+    </form>
+    </div>
+  
+  
+   
+
    );
     return (
-        <div className="blogPage" style={{backgroundColor: theme.secondary}}>
+      <div
+      className='blogPage'
+      id='login'
+      style={{ backgroundColor: theme.secondary }}
+  >
             <Helmet>
                 <title>{headerData.name} | Blog</title>
             </Helmet>
@@ -182,14 +255,10 @@ function LoginPage() {
                     <AiOutlineHome className={classes.home}/>
                 </Link>            
             </div>
-            <div className="login-form">           
-      <div className="title">Sign In</div>
+      <h1 style={{ color: theme.primary }}>Login</h1>
         {isSubmitted ? <Redirect to="/grid" /> 
                  : renderForm}
-      </div>
-            <div className="blogPage--container">
-          
-            </div>
+     
         </div>
     )
 }

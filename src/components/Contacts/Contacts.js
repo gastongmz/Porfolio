@@ -215,7 +215,7 @@ function Contacts() {
                             </div>
                             <div className='input-container'>
                                 <label htmlFor='phone' className={classes.label}>
-                                Telefono
+                                    Telefono
                                 </label>
                                 <input
                                     placeholder='Telefono'
