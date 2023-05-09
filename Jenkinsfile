@@ -24,7 +24,7 @@ pipeline {
 			stage('Publish'){
 				steps{
 					echo 'Publicando...' 	
-					bat "(robocopy /E \"build\" \"${pathPubli}\" /XF build\\Web.config ) ^& IF %ERRORLEVEL% LEQ 1 exit /B 0""								
+					bat "(robocopy /E \"build\" \"${pathPubli}\" /XF build\\Web.config ) ^& IF %ERRORLEVEL% LEQ 1 exit /B 0"								
 					
 					}
 				}
