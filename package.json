@@ -30,8 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:prod": "react-scripts build cross-env BUILD_PATH='C:\\deploy\\sitios.web\\TPO_PROD'",
+    "build": "react-scripts build",    
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
