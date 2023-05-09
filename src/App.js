@@ -26,7 +26,7 @@ function App() {
 
           <Route path={pathServer + "/"} exact component={Main} />
           <Route path={pathServer + "/login"} exact component={LoginPage} />
-          <PrivateRoute component={GridPage} path="/grid" exact />
+          <PrivateRoute component={GridPage} path={pathServer +"/grid"} exact />
           <Route path={pathServer + "/blog"} exact component={BlogPage} />
           <Route path={pathServer + "/projects"} exact component={ProjectPage} />
 
