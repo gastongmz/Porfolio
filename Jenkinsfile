@@ -17,14 +17,14 @@ pipeline {
 			 stage('Build Prod') { 
 			  		steps { 
 			  			echo 'Compilando Prod...' 
-			  		bat "npm run build -- --output-path=%DEPLOY_PATH_SITIOS_WEB%\\TTPO_PROD"	
+			  		bat "npm run build cross-env BUILD_PATH=\"%DEPLOY_PATH_SITIOS_WEB%\\TPO_PROD\""	
 			  	}
 			 }
 			
 			stage('Publish'){
 				steps{
 					echo 'Publicando...' 				
-					bat "(robocopy /E \"%DEPLOY_PATH_SITIOS_WEB%\\TPO_TEST\" \"${pathPubli}\" /XF %DEPLOY_PATH_SITIOS_WEB%\\TPO\\Web.config  ) ^& IF %ERRORLEVEL% LEQ 1 exit /B 0"
+					bat "(robocopy /E \"%DEPLOY_PATH_SITIOS_WEB%\\TPO_PROD\" \"${pathPubli}\" /XF %DEPLOY_PATH_SITIOS_WEB%\\TPO\\Web.config  ) ^& IF %ERRORLEVEL% LEQ 1 exit /B 0"
 					
 					}
 				}
