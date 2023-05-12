@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { useState } from "react";
 import { ThemeContext } from './contexts/ThemeContext';
-import { Main, BlogPage, ProjectPage, LoginPage, GridPage } from './pages'
+import { Main, LoginPage, GridPage } from './pages'
 import { BackToTop } from './components'
 import ScrollToTop from './utils/ScrollToTop'
 import PrivateRoute from './utils/PrivateRoute';
@@ -16,20 +15,16 @@ function App() {
   console.log("%chttps://github.com/hhhrrrttt222111/developer-portfolio", `color:${theme.tertiary}; font-size:20px`);
   // console.log = console.warn = console.error = () => {};
 
-  const pathServer = '/TPO'
-  //const pathServer= ''
+  //const pathServer = '/TPO'
+  const pathServer= ''
   return (
     <div className="app">
       <Router>
         <ScrollToTop />
         <Switch>
-
           <Route path={pathServer + "/"} exact component={Main} />
           <Route path={pathServer + "/login"} exact component={LoginPage} />
-          <PrivateRoute component={GridPage} path={pathServer +"/grid"} exact />
-          <Route path={pathServer + "/blog"} exact component={BlogPage} />
-          <Route path={pathServer + "/projects"} exact component={ProjectPage} />
-
+          <PrivateRoute component={GridPage} path={pathServer +"/grid"} exact />          
           <Redirect to="/" />
         </Switch>
       </Router>

@@ -1,21 +1,18 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet'
 //import { DataGrid } from '@material-ui/core'
 import { DataGrid } from '@material-ui/data-grid'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { AiOutlineHome, AiOutlineLogout } from "react-icons/ai";
-import { IoMenuSharp, IoHomeSharp } from 'react-icons/io5';
 
 import './GridPage.css'
-import { SingleBlog } from '../../components'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { gridData } from '../../data/gridData'
 import { headerData } from '../../data/headerData'
 
 function GridPage() {
-
-    const [search, setSearch] = useState('')
+   
     const { theme } = useContext(ThemeContext);
 
     const rows = gridData;
@@ -29,10 +26,7 @@ function GridPage() {
         { field: 'email', headerName: 'Email', width: 300, headerClassName: theme.secondary },
         { field: 'phone', headerName: 'Telefono', width: 300, headerClassName: theme.secondary },
     ];
-
-    const GridPage = () => {
-        const [pageSize, setPageSize] = useState(10);
-    };
+   
     const handlePageSizeChange = (event) => {
         setPageSize(Number(event.target.value));
     };
@@ -110,26 +104,6 @@ function GridPage() {
 
             </div>
             <div className="blogPage--container"  >
-
-                {/*<div className="blog--search">
-                    <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Seach blog..." className={classes.search}/>
-    </div>*/}
-                {/*<div className="blogs--container">
-                    <Grid className="blog-grid" container direction="row" alignItems="center" justifyContent="center">
-                        {filteredArticles.reverse().map(blog => (
-                            <SingleBlog 
-                                theme={theme}
-                                title={blog.title}
-                                desc={blog.description}
-                                date={blog.date}
-                                image={blog.image}
-                                url={blog.url}
-                                key={blog.id}
-                                id={blog.id}
-                            />
-                        ))}
-                    </Grid>
-                        </div>*/}
             </div>
             <div style={{ height: 400, width: '50%', backgroundColor: theme.tertiary80 }}>
 

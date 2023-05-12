@@ -1,28 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { Helmet } from 'react-helmet'
-import { Grid } from '@material-ui/core'
 import { Link, Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import { AiOutlineAlignRight, AiOutlineHome, AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineSend, AiOutlineCheckCircle } from 'react-icons/ai';
 
 import './LoginPage.css'
-import { SingleBlog } from '../../components'
 import { ThemeContext } from '../../contexts/ThemeContext';
-import { blogData } from '../../data/blogData'
 import { headerData } from '../../data/headerData'
 import {loginData} from '../../data/loginData'
 
-function LoginPage() {
+function LoginPage() {    
     
-    const [search, setSearch] = useState('')
     const { theme } = useContext(ThemeContext);
-
-    const filteredArticles = blogData.filter((blog) => {
-        const content = blog.title + blog.description + blog.date
-        return content.toLowerCase().includes(search.toLowerCase())
-    })
-
 
     const useStyles = makeStyles((t) => ({
 
@@ -42,26 +32,6 @@ function LoginPage() {
             fontSize: '2rem',
         },
     },
-       /* search : {
-            color: theme.tertiary, 
-            width: '40%',
-            height: '2.75rem',
-            outline: 'none',
-            border: 'none',
-            borderRadius: '20px',
-            padding: '0.95rem 1rem',
-            fontFamily: "'Noto Sans TC', sans-serif",
-            fontWeight: 500,
-            fontSize: '0.9rem',  
-            backgroundColor: theme.secondary, 
-            boxShadow: theme.type === 'dark' ? 'inset 3px 3px 6px #ffffff10, inset -3px -3px 6px #00000060' : 'inset 3px 3px 6px #ffffffbd, inset -3px -3px 6px #00000030',
-            "&::placeholder": {
-                color: theme.tertiary80, 
-            },
-            [t.breakpoints.down('sm')]: {
-                width:'350px',
-            },
-        },*/
         input: {
           border: `4px solid ${theme.primary80}`,
           backgroundColor: `${theme.secondary}`,
@@ -110,8 +80,7 @@ function LoginPage() {
 
    // React States
    const [errorMessages, setErrorMessages] = useState({});
-   const [isSubmitted, setIsSubmitted] = useState(false);
-   const [success, setSuccess] = useState(false);
+   const [isSubmitted, setIsSubmitted] = useState(false);   
  
    // User Login info
    const database = loginData;
@@ -133,33 +102,20 @@ function LoginPage() {
      // Compare user info
      if (userData) {
        if (userData.password !== pass.value) {
-         // Invalid password
-         //localStorage.setItem('auth','false');
+         // Invalid password         
          localStorage.setItem("auth", JSON.stringify(false));
          setErrorMessages({ name: "pass", message: errors.pass });
-       } else {
-        //localStorage.setItem('auth','true');
+       } else {        
         localStorage.setItem("auth", JSON.stringify(true));
          setIsSubmitted(true);
        }
-     } else {
-        //localStorage.setItem('auth','false');
+     } else {        
         localStorage.setItem("auth", JSON.stringify(false));
        // Username not found
        setErrorMessages({ name: "uname", message: errors.uname });
      }
    };
-/*
-   const [isLoggedIn, setisLoggedIn] = useState(false);
-   const logIn = () => {
-   setisLoggedIn(true);   
-   localStorage.setItem('auth','true');
-   };
-   const logOut = () => {    
-   setisLoggedIn(false);   
-   localStorage.setItem('auth','false');
-   };  
-*/
+
  
    // Generate JSX code for error message
    const renderErrorMessage = (name) =>
@@ -209,15 +165,15 @@ function LoginPage() {
                 type='submit'
                 className={classes.submitBtn}
             >
-                <p>{!success ? 'Login' : 'Login'}</p>
+                <p>{!isSubmitted  ? 'Login' : 'Login'}</p>
                 <div className='submit-icon'>
                     <AiOutlineSend
                         className='send-icon'
                         style={{
-                            animation: !success
+                            animation: !isSubmitted 
                                 ? 'initial'
                                 : 'fly 0.8s linear both',
-                            position: success
+                            position: isSubmitted 
                                 ? 'absolute'
                                 : 'initial',
                         }}
@@ -225,10 +181,10 @@ function LoginPage() {
                     <AiOutlineCheckCircle
                         className='success-icon'
                         style={{
-                            display: !success
+                            display: !isSubmitted 
                                 ? 'none'
                                 : 'inline-flex',
-                            opacity: !success ? '0' : '1',
+                            opacity: !isSubmitted  ? '0' : '1',
                         }}
                     />
                 </div>

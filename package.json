@@ -1,6 +1,6 @@
 {
   "name": "tpo.api",
-  "homepage": "http://192.168.0.10/TPO",
+  "homepage": "http://192.168.0.10/TPO/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
