@@ -1,11 +1,11 @@
 .loginPage {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
+    position: relative;
 }
-
 
 .loginPage--header {
     height: 15vh;
@@ -21,24 +21,99 @@
     font-family: var(--primaryFont);
 }
 
-.loginPage--container {
+/*.loginPage--container {
     padding: 3rem 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+}*/
+
+
+
+.loginPage--container {
+  display: contents;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem 6rem 3rem;
+  width: 40%;
+  height: 100%;
+  margin-top: 2rem;
 }
 
+.loginPage--container > h1 {
+  font-family: var(--primaryFont);
+  font-size: 3.5rem;
+  margin-bottom: 2.5rem;
 
-.login--search {
-    width: 100%;
+}
+
+.loginPage-form {
     display: flex;
-    align-items: center;
+    flex: 0.4;
+    width:40%;
     justify-content: center;
+    align-items: center;
 }
 
-.login--input {
+
+.loginPage-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.form-input {
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 50px; 
+  outline: none;
+  margin-bottom: 2rem;
+  padding: 0.7rem 0.7rem;
+  border-radius: 20px;
+  width: 100%; 
+  resize: none;
+}
+
+.submit-btn button {
+  border: none;
+  outline: none;
+  width: 140px;
+  height: 50px;
+  border-radius: 50px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.submit-btn button p {
+  font-size: 16px;
+  font-family: var(--primaryFont);
+}
+/*
+.loginPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}*/
+
+
+
+
+.loginPage--input {
     width: 30%;
     height: 2.75rem;
     outline: none;
@@ -47,13 +122,13 @@
     padding: 0.25rem 1rem;
 }
 
-.login--input::placeholder {
+.loginPage--input::placeholder {
     color: white;
 }
 
 
 
-.login-grid {
+.loginPage-grid {
     display: flex;
     gap: 4rem;   
 }
@@ -62,22 +137,24 @@
 
 @media (min-width: 992px) and (max-width: 1380px) {
 
-  .login--container {
+  .loginPage--container {
     padding: 2rem 4rem;
     width: 90%;
     margin-top: 1rem;
-}
-
+    }
+    
 }
 
 
 @media screen and (max-width: 992px) {
 
-  .login--container {
+  .loginPage--container {
     width: 100%;
     margin-top: 1rem;
 }
-.login--container > h1 {
+
+
+.loginPage--container > h1 {
     font-size: 3rem;
     margin: 0 0 1.2rem 0;
 }
@@ -90,41 +167,43 @@
         justify-content: center;
     }
 
-    .login-grid {
+    .loginPage-grid {
         gap: 3rem;   
     }
-    .login--input {
+    .loginPage--input {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 800px) {
 
-  .login--container h1 {
+  .loginPage--container h1 {
     font-size: 3rem;
     margin-bottom: 30px;
 }
-.login--container {
+.loginPage--container {
     padding: 2rem;
     margin-top: 0rem;
     align-items: center;
 }
-.login-body {
+.loginPage-body {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.login-form {
+
+.loginPage-form {
     display: flex;
     flex: 1;
-    width: 100%;
+    width: 80%;
 }
 
+
 .form-input {
-    margin-bottom: 0.45rem;
+    margin-bottom: 2.45rem;
 }
-.login-form form {
-    align-items: flex-end;
+.loginPage-form form {
+    align-items: center;
 }
 }
 
@@ -134,6 +213,24 @@
     }
 }
 
+
+@media screen and (max-width: 600px) {
+    .loginPage-form {
+        display: flex;
+        flex: 1;
+        width: 90%;
+    }
+    .loginPage--container {
+        padding: 2rem;
+        margin-top: 0rem;
+        align-items: center;
+    }
+    /*.loginPage--container h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }*/
+}
+
 @media screen and (max-width: 550px) {
     .loginPage--header h1 {
         font-size: 3rem;
@@ -141,7 +238,7 @@
 }
 @media screen and (max-width: 400px) {
 
-  .login-form {
+  .loginPage-form {
     display: flex;
     flex: 1;
     width: 100%;
@@ -150,7 +247,7 @@
         height: 20vh;
     }
     .loginPage--header h1 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 }
   
@@ -184,84 +281,4 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
   }
   */
-
-  .login {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-}
-
-.login--container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 2rem 6rem 3rem;
-  width: 80%;
-  height: 100%;
-  margin-top: 2rem;
-}
-
-.login--container > h1 {
-  font-family: var(--primaryFont);
-  font-size: 3.5rem;
-  margin-bottom: 2.5rem;
-
-}
-
-
-  .login-form {
-    display: flex;
-    flex: 0.4;
-    width:30%;
-    justify-content: center;
-}
-
-.login-form form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.input-container {
-  width: 100%;
-}
-
-
-.form-input {
-  height: 50px;
-  box-sizing: border-box;
-  border-radius: 50px; 
-  outline: none;
-  margin-bottom: 2rem;
-  padding: 0.7rem 0.7rem;
-  border-radius: 20px;
-  width: 100%; 
-  resize: none;
-}
-
-
-.submit-btn button {
-  border: none;
-  outline: none;
-  width: 140px;
-  height: 50px;
-  border-radius: 50px;
-  font-weight: 500;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  cursor: pointer;
-}
-
-.submit-btn button p {
-  font-size: 16px;
-  font-family: var(--primaryFont);
-}
 

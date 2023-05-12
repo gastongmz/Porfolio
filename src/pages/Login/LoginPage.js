@@ -52,6 +52,16 @@ function LoginPage() {
         transform: 'translate(25px,50%)',
         display: 'inline-flex',
     },
+    error: {
+        backgroundColor: `${theme.secondary}`,
+        color: `${theme.primary}`,
+        fontFamily: 'var(--primaryFont)',
+        fontWeight: 600,
+        fontSize: '0.9rem',
+        padding: '0 5px',
+        transform: 'translate(25px,50%)',
+        display: 'inline-flex',
+    },
         home: {
             color: theme.secondary,
             position: 'absolute',
@@ -119,12 +129,12 @@ function LoginPage() {
    // Generate JSX code for error message
    const renderErrorMessage = (name) =>
      name === errorMessages.name && (
-       <div className="error">{errorMessages.message}</div>
+       <div  className={classes.error} >{errorMessages.message}</div>
      );
  
    // JSX code for login form
-   const renderForm = (
-    <div className='login-form'>
+   const renderForm = (    
+    <div className='loginPage-form'>
     <form onSubmit={handleSubmit}>
         <div className='input-container'>
           
@@ -132,8 +142,8 @@ function LoginPage() {
                 Usuario
             </label>           
             <input
-                placeholder='Nombre'
-                value={'gaston.alejandro.gmz@gmail.com'}
+                placeholder='Usuario'
+                defaultValue={'gaston.alejandro.gmz@gmail.com'}
                
                 type='text'
                 name='uname'
@@ -142,13 +152,13 @@ function LoginPage() {
              {renderErrorMessage("uname")}
         </div>
         <div className='input-container'>
-            <label htmlFor='Surname' className={classes.label}>
+            <label htmlFor='SurContraname' className={classes.label}>
                 Contraseña
             </label>            
             <input
-                placeholder='Apellido'
+                placeholder='Contraseña'
                 required  
-                value={'pass1'}
+                defaultValue={'pass1'}
               
                 type='password'
                 name='pass'
@@ -209,11 +219,12 @@ function LoginPage() {
                 <Link to="/">
                     <AiOutlineHome className={classes.home}/>
                 </Link>            
-            </div>
+            </div>      
+      <div className='loginPage--container'>
       <h1 style={{ color: theme.primary }}>Login</h1>
         {isSubmitted ? <Redirect to="/grid" /> 
                  : renderForm}
-     
+     </div>
         </div>
     )
 }

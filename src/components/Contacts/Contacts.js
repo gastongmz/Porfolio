@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Snackbar, IconButton, SnackbarContent } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import axios from 'axios';
 import isEmail from 'validator/lib/isEmail';
+import isMobilePhone from 'validator/lib/isMobilePhone';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     FaTwitter,
@@ -31,7 +31,9 @@ function Contacts() {
     const [open, setOpen] = useState(false);
 
     const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
 
     const [success, setSuccess] = useState(false);
@@ -132,30 +134,48 @@ function Contacts() {
     const handleContactForm = (e) => {
         e.preventDefault();
 
-        if (name && email && message) {
+        if (name && surname && email && phone && message) {
             if (isEmail(email)) {
+                if(isMobilePhone(phone)){
+
                 const responseData = {
                     name: name,
+                    surname: surname,
+                    phone: phone,
                     email: email,
                     message: message,
-                };
-
-                axios.post(contactsData.sheetAPI, responseData).then((res) => {
+                };                  
+                    setOpen(true);
+                    setErrMsg('Solicitud enviado correctamente');
+                    setName('');
+                    setSurname('');
+                    setEmail('');
+                    setPhone('');
+                    setMessage('');                  
+                    
+                {/*axios.post(contactsData.sheetAPI, responseData).then((res) => {
                     console.log('success');
                     setSuccess(true);
                     setErrMsg('');
 
                     setName('');
+                    setName('');
                     setEmail('');
+                    setPhone('');
                     setMessage('');
                     setOpen(false);
-                });
+                });*/}
+            }else{
+                setErrMsg('Telefono invalido');
+                setOpen(true);
+            }
+
             } else {
-                setErrMsg('Invalid email');
+                setErrMsg('Email invalido');
                 setOpen(true);
             }
         } else {
-            setErrMsg('Enter all the fields');
+            setErrMsg('Completar todo los campos');
             setOpen(true);
         }
     };
@@ -190,8 +210,8 @@ function Contacts() {
                                 </label>
                                 <input
                                     placeholder='Apellido'
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    value={surname}
+                                    onChange={(e) => setSurname(e.target.value)}
                                     type='text'
                                     name='Surname'
                                     className={`form-input ${classes.input}`}
@@ -219,8 +239,8 @@ function Contacts() {
                                 </label>
                                 <input
                                     placeholder='Telefono'
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
                                     type='text'
                                     name='phone'
                                     className={`form-input ${classes.input}`}
