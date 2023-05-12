@@ -8,12 +8,12 @@ import strImgWhite from '../../assets/svg/strengths/strImgWhite.svg'
 import strImgBlack from '../../assets/svg/strengths/strImgBlack.svg'
 import './Strengths.css'
 
-function StrengthsCard({ id, institution, course, startYear, endYear }) {
+function StrengthsCard({ id, description, strengths}) {
 
     const { theme } = useContext(ThemeContext);
 
     const useStyles = makeStyles((t) => ({
-        educationCard : {
+        strengthsCard : {
             backgroundColor:theme.primary30,
             "&:hover": {
                 backgroundColor:theme.primary50,
@@ -25,14 +25,13 @@ function StrengthsCard({ id, institution, course, startYear, endYear }) {
 
     return (
         <Fade bottom>
-            <div key={id} className={`education-card ${classes.educationCard}`} >
+            <div key={id} className={`strengths-card ${classes.strengthsCard}`} >
                 <div className="educard-img" style={{backgroundColor: theme.primary}}>
                     <img src={theme.type === 'light' ? strImgBlack : strImgWhite} alt="" />
                 </div>
-                <div className="education-details">
-                   <h6 style={{color: theme.primary}}>{startYear}{endYear}</h6>
-                  {/*  <h4 style={{color: theme.tertiary}}>{course}</h4>*/} 
-                    <h5 style={{color: theme.tertiary80}}>{institution}</h5>
+                <div className="strengths-details">
+                   <h6 style={{color: theme.primary}}>{strengths}</h6>                  
+                    <h5 style={{color: theme.tertiary80}}>{description}</h5>
                 </div>
             </div>
         </Fade>        

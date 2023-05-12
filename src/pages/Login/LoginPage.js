@@ -7,7 +7,6 @@ import { AiOutlineSend, AiOutlineCheckCircle } from 'react-icons/ai';
 
 import './LoginPage.css'
 import { ThemeContext } from '../../contexts/ThemeContext';
-import { headerData } from '../../data/headerData'
 import {loginData} from '../../data/loginData'
 
 function LoginPage() {    
@@ -199,14 +198,14 @@ function LoginPage() {
    );
     return (
       <div
-      className='blogPage'
+      className='loginPage'
       id='login'
       style={{ backgroundColor: theme.secondary }}
   >
             <Helmet>
-                <title>{headerData.name} | Blog</title>
+                <title> Login </title>
             </Helmet>
-            <div className="blogPage--header" style={{backgroundColor: theme.primary}}>
+            <div className="loginPage--header" style={{backgroundColor: theme.primary}}>
                 <Link to="/">
                     <AiOutlineHome className={classes.home}/>
                 </Link>            

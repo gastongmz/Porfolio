@@ -1,4 +1,4 @@
-.blogPage {
+.gridPage {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
 }
 
 
-.blogPage--header {
+.gridPage--header {
     height: 15vh;
     width: 100%;
     display:inline-flex;
@@ -16,12 +16,12 @@
     position: relative;
 }
 
-.blogPage--header h1 {
+.gridPage--header h1 {
     font-size: 4rem;
     font-family: var(--primaryFont);
 }
 
-.blogPage--container {
+.gridPage--container {
     padding: 3rem 2rem;
     width: 100%;
     display: flex;
@@ -31,14 +31,14 @@
 }
 
 
-.blog--search {
+.grid--search {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.blog--input {
+.grid--input {
     width: 30%;
     height: 2.75rem;
     outline: none;
@@ -47,17 +47,17 @@
     padding: 0.25rem 1rem;
 }
 
-.blog--input::placeholder {
+.grid--input::placeholder {
     color: white;
 }
 
-.blogs--container {
+.grids--container {
     margin-top: 5rem;
     width: 100%;
 }
 
 
-.blog-grid {
+.grid-grid {
     display: flex;
     gap: 4rem;   
 }
@@ -70,7 +70,7 @@
 
 
 @media screen and (max-width: 992px) {
-    .blogPage--header {
+    .gridPage--header {
         height: 25vh;
         width: 100%;
         display: flex;
@@ -78,10 +78,10 @@
         justify-content: center;
     }
 
-    .blog-grid {
+    .grid-grid {
         gap: 3rem;   
     }
-    .blog--input {
+    .grid--input {
         width: 100%;
     }
 }
@@ -91,21 +91,21 @@
 }
 
 @media screen and (max-width: 702px) {
-    .blog-grid {
+    .grid-grid {
         gap: 1.5rem;
     }
 }
 
 @media screen and (max-width: 550px) {
-    .blogPage--header h1 {
+    .gridPage--header h1 {
         font-size: 3rem;
     }
 }
 @media screen and (max-width: 400px) {
-    .blogPage--header {
+    .gridPage--header {
         height: 20vh;
     }
-    .blogPage--header h1 {
+    .gridPage--header h1 {
         font-size: 2.5rem;
     }
 }

@@ -31,6 +31,29 @@ export const greenThemeLight = {
     strimg :strGreen
 }
 
+export const greenThemeMedium = {
+    type: 'light',
+    primary: '#3fc337',
+    primary400: '#57d750',
+    primary600: '#29c51f',
+    primary80: '#3fc337cc',
+    primary50: '#3fc33780',
+    primary30: '#3fc3374d',
+    secondary: '#808080',
+    secondary70: '#808080b3',
+    secondary50: '#80808080',
+    tertiary: '#eaeaea',
+    tertiary80: '#eaeaeacc',
+    tertiary70: '#eaeaeab3',
+    tertiary50: '#eaeaea80',
+    aboutimg1: greenThemeboy,
+    aboutimg2: greenThemegirl,
+    eduimg: eduGreen,
+    expimg: expGreen,
+    contactsimg: contactsGreen,
+    strimg :strGreen
+}
+
 export const greenThemeDark = {
     type: 'dark',
     primary: '#3fc337',

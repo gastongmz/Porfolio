@@ -1,4 +1,4 @@
-.blogPage {
+.loginPage {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
 }
 
 
-.blogPage--header {
+.loginPage--header {
     height: 15vh;
     width: 100%;
     display: flex;
@@ -16,12 +16,12 @@
     position: relative;
 }
 
-.blogPage--header h1 {
+.loginPage--header h1 {
     font-size: 4rem;
     font-family: var(--primaryFont);
 }
 
-.blogPage--container {
+.loginPage--container {
     padding: 3rem 2rem;
     width: 100%;
     display: flex;
@@ -31,14 +31,14 @@
 }
 
 
-.blog--search {
+.login--search {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.blog--input {
+.login--input {
     width: 30%;
     height: 2.75rem;
     outline: none;
@@ -47,17 +47,13 @@
     padding: 0.25rem 1rem;
 }
 
-.blog--input::placeholder {
+.login--input::placeholder {
     color: white;
 }
 
-.blogs--container {
-    margin-top: 5rem;
-    width: 100%;
-}
 
 
-.blog-grid {
+.login-grid {
     display: flex;
     gap: 4rem;   
 }
@@ -86,7 +82,7 @@
     margin: 0 0 1.2rem 0;
 }
 
-    .blogPage--header {
+    .loginPage--header {
         height: 25vh;
         width: 100%;
         display: flex;
@@ -94,10 +90,10 @@
         justify-content: center;
     }
 
-    .blog-grid {
+    .login-grid {
         gap: 3rem;   
     }
-    .blog--input {
+    .login--input {
         width: 100%;
     }
 }
@@ -133,13 +129,13 @@
 }
 
 @media screen and (max-width: 702px) {
-    .blog-grid {
+    .login-grid {
         gap: 1.5rem;
     }
 }
 
 @media screen and (max-width: 550px) {
-    .blogPage--header h1 {
+    .loginPage--header h1 {
         font-size: 3rem;
     }
 }
@@ -150,10 +146,10 @@
     flex: 1;
     width: 100%;
 }
-    .blogPage--header {
+    .loginPage--header {
         height: 20vh;
     }
-    .blogPage--header h1 {
+    .loginPage--header h1 {
         font-size: 2.5rem;
     }
 }

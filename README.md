@@ -187,7 +187,10 @@ yarn start
 │   │       ├── contacts
 │   │       ├── education
 │   │       ├── experience
+│   │       ├── strenghts
+│   │       ├── social
 │   │       └── skills
+│   │           └── soft
 │   ├── components
 │   │   ├── About
 │   │   │   ├── About.css
@@ -226,9 +229,12 @@ yarn start
 │   │   ├── contactsData.js
 │   │   ├── educationData.js
 │   │   ├── experienceData.js
+│   │   ├── gridData.js
 │   │   ├── headerData.js
+│   │   ├── loginData.js
 │   │   ├── skillsData.js
 │   │   ├── socialsData.js
+│   │   ├── strengthsData.js
 │   │   └── themeData.js
 │   ├── index.css
 │   ├── index.js

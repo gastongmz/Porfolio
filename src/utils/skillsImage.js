@@ -88,15 +88,15 @@ import timemanagement from '../assets/svg/skills/soft/timemanagement.svg'
 export const skillsImage = (skill) => {
     const skillID = skill.toLowerCase();
     switch (skillID) {
-        case 'timemanagement':
+        case 'gestion del tiempo':
             return timemanagement;
-        case 'teamwork':
+        case 'trabajo en equipo':
             return teamwork;
-        case 'problemsolving':
+        case 'resolutivo':
             return problemsolving;
-        case 'leadership':
+        case 'liderazgo':
             return leadership;            
-        case 'communication':
+        case 'comunicacion':
             return communication;
         case 'oracle':
             return oracle;

@@ -14,11 +14,11 @@
 ]
 
 export const softSkillsData = [    
-    'Communication',
-    'leadership',
-    'problemsolving',
-    'teamwork',
-    'timemanagement'
+    'Comunicacion',
+    'Liderazgo',
+    'Resolutivo',
+    'Trabajo en equipo',
+    'Gestion del tiempo'
 ]
 
 // Choose your skills from below. Make sure it's in the same format and spelled correctly.
@@ -28,11 +28,11 @@ export const softSkillsData = [
 // AVAILABLE SKILLS
 
 /* 
-    Communication
-    leadership
-    problemsolving
-    teamwork
-    timemanagement
+    Comunicacion
+    Liderazgo
+    Resolutivo
+    Trabajo en equipo'
+    Gestion del tiempo
     HTML
     CSS
     JS 

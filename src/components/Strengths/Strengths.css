@@ -1,8 +1,8 @@
-.education {
+.strengths {
     min-height: 100vh;
 }
 
-.education-body {
+.strengths-body {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,7 +11,7 @@
     color: hsla(117, 56%, 49%, 0.702);
 }
 
-.education-description {
+.strengths-description {
     width: 100%;
     flex: 0.65;
     padding: 2rem;
@@ -22,13 +22,13 @@
     margin-left: 7%;
 }
 
-.education-description > h1{
+.strengths-description > h1{
     font-size: 3.5rem;
     font-family: var(--primaryFont);
     margin-bottom: 2rem;
 }
 
-.education-card {
+.strengths-card {
     display: flex;
     flex-direction: row;
     align-items:flex-start;
@@ -55,38 +55,39 @@
     width: 40px;
 }
 
-.education-details{
+.strengths-details{
     margin-left: 0.6rem;
 }
 
-.education-details > h6 {
+.strengths-details > h6 {
     font-family: var(--primaryFont);
     font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
-.education-details > h4 {
+.strengths-details > h4 {
     font-family: var(--primaryFont);
     font-size: 1.225rem;
     font-weight: 600;
 }
 
-.education-details > h5 {
+.strengths-details > h5 {
     font-family: var(--primaryFont);
     font-size: 1.15rem;
     font-weight: 600;
 }
 
-.education-image {
+.strengths-image {
     box-sizing: border-box;
     padding: 1rem;
     flex: 0.35;
     margin-top: 1rem;
     pointer-events: none;
+    margin-right: 3.1rem;
 }
 
-.education-image > img {
+.strengths-image > img {
     width: 100%;
 }
 
@@ -98,20 +99,20 @@
 
 
 @media screen and (max-width: 992px) {
-    .education {
+    .strengths {
         min-height: 100%;
     }
-    .education-image {
+    .strengths-image {
         display: none;
     }
-    .education-description {
+    .strengths-description {
         flex: 1;
         margin: auto;
     }    
-    .education-description > h1{
+    .strengths-description > h1{
         font-size: 3.2rem;
     }
-    .education-card {
+    .strengths-card {
         width: 100%;
         padding: 1.5rem;
         margin-bottom: 1.5rem;
@@ -119,15 +120,15 @@
 }
 
 @media screen and (max-width: 800px) {
-    .education-description > h1{
+    .strengths-description > h1{
         font-size: 3rem;
         margin-bottom: 2rem;
         align-self: center;
     }
-    .education-description {
+    .strengths-description {
         padding: 1rem;
     }
-    .education-card {
+    .strengths-card {
         padding: 1rem;
         margin-bottom: 1.5rem;
         height: auto;
@@ -141,24 +142,24 @@
     .educard-img > img {
         width: 30px;
     }
-    .education-details > h6 {
+    .strengths-details > h6 {
         font-size: 0.85rem;
         margin-bottom: 0.45rem;
     }
     
-    .education-details > h4 {
+    .strengths-details > h4 {
         font-size: 1.125rem;
         line-height: 126%;
     }
     
-    .education-details > h5 {
+    .strengths-details > h5 {
         font-size: 1.05rem;
         line-height: 126%;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .education-description > h1{
+    .strengths-description > h1{
         font-size: 2.5rem;
     }
 }

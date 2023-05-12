@@ -89,11 +89,11 @@ function GridPage() {
 
 
     return (
-        <div className="blogPage" style={{ backgroundColor: theme.secondary }}>
+        <div className="gridPage" style={{ backgroundColor: theme.secondary }}>
             <Helmet>
                 <title>{headerData.name} | Solicitudes</title>
             </Helmet>
-            <div className="blogPage--header" style={{ backgroundColor: theme.primary }}>
+            <div className="gridPage--header" style={{ backgroundColor: theme.primary }}>
                 <Link to="/">
                     <AiOutlineHome className={classes.home} />
                 </Link>
@@ -103,7 +103,7 @@ function GridPage() {
                 <h1 style={{ color: theme.secondary }}>Solicitudes de contacto</h1>
 
             </div>
-            <div className="blogPage--container"  >
+            <div className="gridPage--container"  >
             </div>
             <div style={{ height: 400, width: '50%', backgroundColor: theme.tertiary80 }}>
 
