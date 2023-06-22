@@ -37,7 +37,7 @@ git --version
 
 ### Clonar el repo
 ```
-git clone https://github.com/gastongmz/TPO.Api
+git clone https://github.com/gastongmz/Porfolio
 cd developer-portfolio
 ```
 ### Instalar los paquetes
@@ -154,7 +154,7 @@ npm start
 # Uso:
 ### Configuracion.
 
-Eg:
+Ej:
 ```javascript
 export const headerData = {
     name: '-- NOMBRE --',
@@ -178,19 +178,19 @@ export const headerData = {
 }
 ```
 #### Archivos de datos para cada componentes.
->#### Configurar el tema del sitio [`src/data/themeData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/themeData.js) y elegi la fuete [`src/App.css`](https://github.com/gastongmz/TPO.Api/blob/main/src/App.css)
+>#### Configurar el tema del sitio [`src/data/themeData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/themeData.js) y elegi la fuete [`src/App.css`](https://github.com/gastongmz/Porfolio/blob/main/src/App.css)
 
-> #### Sobre mi - [`src/data/aboutData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/aboutData.js)
+> #### Sobre mi - [`src/data/aboutData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/aboutData.js)
 
-> #### Detalles Educacion - [`src/data/educationData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/educationData.js) 
+> #### Detalles Educacion - [`src/data/educationData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/educationData.js) 
 
-> #### Agregar tus Skills - [`src/data/skillsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/skillsData.js)
+> #### Agregar tus Skills - [`src/data/skillsData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/skillsData.js)
 
-> #### Experiencia - [`src/data/experienceData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/experienceData.js)
+> #### Experiencia - [`src/data/experienceData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/experienceData.js)
 
-> #### Detalle Contacto - [`src/data/contactsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/contactsData.js)
+> #### Detalle Contacto - [`src/data/contactsData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/contactsData.js)
 
-> #### Perfiles redes social - [`src/data/contactsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/socialsData.js)
+> #### Perfiles redes social - [`src/data/contactsData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/socialsData.js)
 
 
 ```javascript
