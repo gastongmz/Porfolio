@@ -37,7 +37,7 @@ git --version
 
 ### Clonar el repo
 ```
-git clone hhttps://github.com/<YOUR GITHUB USERNAME>/developer-portfolio.git
+git clone https://github.com/gastongmz/TPO.Api
 cd developer-portfolio
 ```
 ### Instalar los paquetes
@@ -157,10 +157,10 @@ npm start
 Eg:
 ```javascript
 export const headerData = {
-    name: '-- YOUR NAME --',
-    title: '-- YOUR TITLE --',
-    desciption:'-- DESCRIPTION --',
-    image: '-- IMAGE --',
+    name: '-- NOMBRE --',
+    title: '-- TITULO --',
+    desciption:'-- DESCRIPCION --',
+    image: '-- IMAGEN --',
     resumePdf: ''
 }
 
@@ -170,27 +170,53 @@ import resume from '../assets/pdf/resume.pdf'
 import profileImg from '../assets/png/profileImg'
 
 export const headerData = {
-    name: '-- YOUR NAME --',
-    title: '-- YOUR TITLE --',
-    desciption:'-- DESCRIPTION --',
+    name: '-- NOMBRE --',
+    title: '-- TITULO --',
+    desciption:'-- DESCRIPCION --',
     image: profileImg,
     resumePdf: resume
 }
 ```
+#### Archivos de datos para cada componentes.
+>#### Configurar el tema del sitio [`src/data/themeData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/themeData.js) y elegi la fuete [`src/App.css`](https://github.com/gastongmz/TPO.Api/blob/main/src/App.css)
+
+> #### Sobre mi - [`src/data/aboutData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/aboutData.js)
+
+> #### Detalles Educacion - [`src/data/educationData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/educationData.js) 
+
+> #### Agregar tus Skills - [`src/data/skillsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/skillsData.js)
+
+> #### Experiencia - [`src/data/experienceData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/experienceData.js)
+
+> #### Detelle Contacto - [`src/data/contactsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/contactsData.js)
+
+> #### Perfiles redes social - [`src/data/contactsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/socialsData.js)
+
 
 ```javascript
 // EXAMPLE
 export const educationData = [
     {
         id: 1,
-        institution: '-- INSTITUTION NAME --',
-        course: '-- COURSE NAME --',
+        institution: '-- NOMBRE INSTITUCION --',
+        course: '-- CURSO --',
         startYear: '2017',
         endYear: '2019'
     },
     //
 ]
 ```
+# Hosting :globe_with_meridians:
+## Netlify
+| Site   | Docs  | Demo  |
+| :-------------: |:-------------: |:-------------: |
+| [Netlify](https://www.netlify.com/) | [3 ways to deploy React apps to Netlify](https://blog.logrocket.com/3-ways-to-deploy-react-apps-to-netlify/) | [Youtube](https://www.youtube.com/watch?v=sGBdp9r2GSg) |
+
+# SEO :spider:
+### La optimización de motores de búsqueda (SEO) es el proceso de mejorar la calidad y la cantidad del tráfico del sitio web a un sitio web o una página web desde los motores de búsqueda. 
+### Agregue el código a `public/index.html` con la información de su sitio. Este paso no es obligatorio.
+
+<br />
 
 ```html
     <meta name="description" content="--- SITE DESCRIPTION ---" />
@@ -241,5 +267,30 @@ export const educationData = [
 | slick-carousel |
 | validator |
 
+<br />
+
+# APIs :world_map:
+- [Backend](https://sheetdb.io/)
+
+
+<br />
+
+# Fuentes e Imagenes :performing_arts:
+
+## Ilustraciones
+- [Icons8](https://icons8.com/illustrations/styles)
+- [SVG Porn](https://svgporn.com/)
+
+## Iconos
+- [Material Icons](https://material-ui.com/components/material-icons/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+
+## Fuentes
+- [Poppins](https://fonts.google.com/specimen/Poppins)
+- [Montserrat](https://fonts.google.com/specimen/Montserrat)
+- [Raleway](https://fonts.google.com/specimen/Raleway)
+- [Big Shoulders Text](https://fonts.google.com/specimen/Big+Shoulders+Text)
+- [Bestermind](https://www.dafont.com/bestermind.font)
+- [Roboto](https://fonts.google.com/specimen/Roboto)
 
 <br />
