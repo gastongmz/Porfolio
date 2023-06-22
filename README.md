@@ -38,7 +38,7 @@ git --version
 ### Clonar el repo
 ```
 git clone https://github.com/gastongmz/Porfolio
-cd developer-portfolio
+cd Portfolio
 ```
 ### Instalar los paquetes
 ```
@@ -164,7 +164,7 @@ export const headerData = {
     resumePdf: ''
 }
 
-// You can also import image and PDF from assets as shown below
+// Para importar imagenes y PDF desde archivos
 
 import resume from '../assets/pdf/resume.pdf'
 import profileImg from '../assets/png/profileImg'
@@ -177,7 +177,7 @@ export const headerData = {
     resumePdf: resume
 }
 ```
-#### Archivos de datos para cada componentes.
+#### Archivos de configuracion para cada componentes.
 >#### Configurar el tema del sitio [`src/data/themeData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/themeData.js) y elegi la fuete [`src/App.css`](https://github.com/gastongmz/Porfolio/blob/main/src/App.css)
 
 > #### Sobre mi - [`src/data/aboutData.js`](https://github.com/gastongmz/Porfolio/blob/main/src/data/aboutData.js)
@@ -219,31 +219,31 @@ export const educationData = [
 <br />
 
 ```html
-    <meta name="description" content="--- SITE DESCRIPTION ---" />
-    <meta property="og:image" content="--- YOUR IMAGE ---">
-    <meta property="og:site_name" content="--- YOUR NAME ---"/>
-    <meta property="og:title" content="--- YOUR NAME ---"/>
-    <meta property="og:url" content="--- YOUR SITE URL ---"/>
+    <meta name="description" content="--- DESCRIPCION DEL SITIO ---" />
+    <meta property="og:image" content="--- TU IMAGEN ---">
+    <meta property="og:site_name" content="--- TU NOMBRE ---"/>
+    <meta property="og:title" content="--- TU NOMBRE ---"/>
+    <meta property="og:url" content="--- URL DEL SITIO ---"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:description" content="--- SITE DESCRIPTION ---"/>
+    <meta property="og:description" content="--- DESCRIPCION DEL SITIO ---"/>
     <meta property="og:locale" content="---  ---">
-    <meta property="og:image" content="--- YOUR IMAGE ---"/>
+    <meta property="og:image" content="--- TU IMAGEN ---"/>
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <meta itemprop="name" content="--- YOUR NAME ---"/>
-    <meta itemprop="url" content="--- YOUR SITE URL ---"/>
-    <meta itemprop="description" content="--- SITE DESCRIPTION ---"/>
+    <meta itemprop="name" content="--- TU NOMBRE ---"/>
+    <meta itemprop="url" content="--- URL DEL SITIO ---"/>
+    <meta itemprop="description" content="--- DESCRIPCION DEL SITIO ---"/>
     <meta itemprop="thumbnailUrl" content=""/>
-    <link rel="image_src" href="--- YOUR IMAGE ---"/>
-    <meta itemprop="image" content="--- YOUR IMAGE ---"/>
+    <link rel="image_src" href="--- TU IMAGEN ---"/>
+    <meta itemprop="image" content="--- TU IMAGEN ---"/>
     
-    <meta name="twitter:site" content="@--- YOUR TWITTER USERNAME ---">
-    <meta name="twitter:creator" content="@--- YOUR TWITTER USERNAME ---">
-    <meta name="twitter:url" content="--- YOUR SITE URL ---"/>
+    <meta name="twitter:site" content="@--- USUARIO TWITTER ---">
+    <meta name="twitter:creator" content="@--- USUARIO TWITTER ---">
+    <meta name="twitter:url" content="--- URL DEL SITIO ---"/>
     <meta name="twitter:title" content="--- YOUR NAME ---">
-    <meta name="twitter:description" content="--- SITE DESCRIPTION ---">
-    <meta name="twitter:image" content="--- YOUR IMAGE ---">
+    <meta name="twitter:description" content="--- DESCRIPCION SITIO ---">
+    <meta name="twitter:image" content="--- TU IMAGEN ---">
     <meta name="twitter:card" content="summary"/>
 
 ```
