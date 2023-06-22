@@ -58,6 +58,7 @@ npm start
 ├── package-lock.json
 ├── package.json     
 ├── public
+├── Jenkinsfile
 │   ├── _redirects   
 │   ├── favicon.ico  
 │   ├── favicon.png
@@ -65,89 +66,89 @@ npm start
 │   ├── index.html
 │   ├── manifest.json
 │   └── robots.txt
-├── src
-│   ├── App.css
-│   ├── App.js
-│   ├── assets
-│   │   ├── fonts
-│   │   │   └── Bestermind
-│   │   │       └── BestermindRegular.ttf
-│   │   ├── pdf
-│   │   │   └── resume.pdf
-│   │   └── svg
-│   │       ├── about
-│   │       ├── contacts
-│   │       ├── education
-│   │       ├── experience
-│   │       ├── strenghts
-│   │       ├── social
-│   │       └── skills
-│   │           └── soft
-│   ├── components
-│   │   ├── About
-│   │   │   ├── About.css
-│   │   │   └── About.js
-│   │   ├── BackToTop
-│   │   │   ├── BackToTop.css
-│   │   │   └── BackToTop.js
-│   │   ├── Contacts
-│   │   │   ├── Contacts.css
-│   │   │   └── Contacts.js
-│   │   ├── Education
-│   │   │   ├── Education.css
-│   │   │   ├── Education.js
-│   │   │   └── EducationCard.js
-│   │   ├── Experience
-│   │   │   ├── Experience.css
-│   │   │   ├── Experience.js
-│   │   │   └── ExperienceCard.js
-│   │   ├── Footer
-│   │   │   ├── Footer.css
-│   │   │   └── Footer.js
-│   │   ├── Landing
-│   │   │   ├── Landing.css
-│   │   │   └── Landing.js
-│   │   ├── Navbar
-│   │   │   ├── Navbar.css
-│   │   │   └── Navbar.js
-│   │   ├── Skills
-│   │   │   ├── Skills.css
-│   │   │   └── Skills.js
-│   │   └── index.js
-│   ├── contexts
-│   │   └── ThemeContext.js
-│   ├── data
-│   │   ├── aboutData.js
-│   │   ├── contactsData.js
-│   │   ├── educationData.js
-│   │   ├── experienceData.js
-│   │   ├── gridData.js
-│   │   ├── headerData.js
-│   │   ├── loginData.js
-│   │   ├── skillsData.js
-│   │   ├── socialsData.js
-│   │   ├── strengthsData.js
-│   │   └── themeData.js
-│   ├── index.css
-│   ├── index.js
-│   ├── pages
-│   │   ├── Grid
-│   │   │   ├── GridPage.css
-│   │   │   └── GridPage.js
-│   │   ├── Main
-│   │   │   └── Main.js
-│   │   ├── Login
-│   │   │   ├── LoginPage.css
-│   │   │   └── LoginPage.js
-│   │   └── index.js
-│   ├── reportWebVitals.js
-│   ├── theme
-│   │   ├── images.js
-│   │   └── theme.js
-│   └── utils
-│       ├── ScrollToTop.js
-│       └── skillsImage.js
-└── yarn.lock
+└──src
+   ├── App.css
+   ├── App.js
+   ├── assets
+   │   ├── fonts
+   │   │   └── Bestermind
+   │   │       └── BestermindRegular.ttf
+   │   ├── pdf
+   │   │   └── resume.pdf
+   │   └── svg
+   │       ├── about
+   │       ├── contacts
+   │       ├── education
+   │       ├── experience
+   │       ├── strenghts
+   │       ├── social
+   │       └── skills
+   │           └── soft
+   ├── components
+   │   ├── About
+   │   │   ├── About.css
+   │   │   └── About.js
+   │   ├── BackToTop
+   │   │   ├── BackToTop.css
+   │   │   └── BackToTop.js
+   │   ├── Contacts
+   │   │   ├── Contacts.css
+   │   │   └── Contacts.js
+   │   ├── Education
+   │   │   ├── Education.css
+   │   │   ├── Education.js
+   │   │   └── EducationCard.js
+   │   ├── Experience
+   │   │   ├── Experience.css
+   │   │   ├── Experience.js
+   │   │   └── ExperienceCard.js
+   │   ├── Footer
+   │   │   ├── Footer.css
+   │   │   └── Footer.js
+   │   ├── Landing
+   │   │   ├── Landing.css
+   │   │   └── Landing.js
+   │   ├── Navbar
+   │   │   ├── Navbar.css
+   │   │   └── Navbar.js
+   │   ├── Skills
+   │   │   ├── Skills.css
+   │   │   └── Skills.js
+   │   └── index.js
+   ├── contexts
+   │   └── ThemeContext.js
+   ├── data
+   │   ├── aboutData.js
+   │   ├── contactsData.js
+   │   ├── educationData.js
+   │   ├── experienceData.js
+   │   ├── gridData.js
+   │   ├── headerData.js
+   │   ├── loginData.js
+   │   ├── skillsData.js
+   │   ├── socialsData.js
+   │   ├── strengthsData.js
+   │   └── themeData.js
+   ├── index.css
+   ├── index.js
+   ├── pages
+   │   ├── Grid
+   │   │   ├── GridPage.css
+   │   │   └── GridPage.js
+   │   ├── Main
+   │   │   └── Main.js
+   │   ├── Login
+   │   │   ├── LoginPage.css
+   │   │   └── LoginPage.js
+   │   └── index.js
+   ├── reportWebVitals.js
+   ├── theme
+   │   ├── images.js
+   │   └── theme.js
+   └── utils
+       ├── ScrollToTop.js
+       └── skillsImage.js
+
 ```
 <br />
 
@@ -220,30 +221,30 @@ export const educationData = [
 
 ```html
     <meta name="description" content="--- DESCRIPCION DEL SITIO ---" />
-    <meta property="og:image" content="--- TU IMAGEN ---">
-    <meta property="og:site_name" content="--- TU NOMBRE ---"/>
-    <meta property="og:title" content="--- TU NOMBRE ---"/>
+    <meta property="og:image" content="--- IMAGEN ---">
+    <meta property="og:site_name" content="--- NOMBRE ---"/>
+    <meta property="og:title" content="--- NOMBRE ---"/>
     <meta property="og:url" content="--- URL DEL SITIO ---"/>
     <meta property="og:type" content="website"/>
     <meta property="og:description" content="--- DESCRIPCION DEL SITIO ---"/>
     <meta property="og:locale" content="---  ---">
-    <meta property="og:image" content="--- TU IMAGEN ---"/>
+    <meta property="og:image" content="--- IMAGEN ---"/>
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <meta itemprop="name" content="--- TU NOMBRE ---"/>
+    <meta itemprop="name" content="--- NOMBRE ---"/>
     <meta itemprop="url" content="--- URL DEL SITIO ---"/>
     <meta itemprop="description" content="--- DESCRIPCION DEL SITIO ---"/>
     <meta itemprop="thumbnailUrl" content=""/>
-    <link rel="image_src" href="--- TU IMAGEN ---"/>
-    <meta itemprop="image" content="--- TU IMAGEN ---"/>
+    <link rel="image_src" href="--- IMAGEN ---"/>
+    <meta itemprop="image" content="--- IMAGEN ---"/>
     
     <meta name="twitter:site" content="@--- USUARIO TWITTER ---">
     <meta name="twitter:creator" content="@--- USUARIO TWITTER ---">
     <meta name="twitter:url" content="--- URL DEL SITIO ---"/>
-    <meta name="twitter:title" content="--- YOUR NAME ---">
+    <meta name="twitter:title" content="--- NOMBRE ---">
     <meta name="twitter:description" content="--- DESCRIPCION SITIO ---">
-    <meta name="twitter:image" content="--- TU IMAGEN ---">
+    <meta name="twitter:image" content="--- IMAGEN ---">
     <meta name="twitter:card" content="summary"/>
 
 ```
