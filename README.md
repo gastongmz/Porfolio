@@ -11,12 +11,12 @@
 
 # Sections :bookmark:
 - HOME
-- ABOUT
-- RESUME
-    - EDUCATION
+- SOBRE MI
+- RESUMEN
+    - EDUCACION
     - SKILLS
-    - EXPERIENCE <br />
-- CONTACTS 
+    - EXPERIENCIA <br />
+- CONTACTOS 
 
 <br /><br />
 
@@ -188,7 +188,7 @@ export const headerData = {
 
 > #### Experiencia - [`src/data/experienceData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/experienceData.js)
 
-> #### Detelle Contacto - [`src/data/contactsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/contactsData.js)
+> #### Detalle Contacto - [`src/data/contactsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/contactsData.js)
 
 > #### Perfiles redes social - [`src/data/contactsData.js`](https://github.com/gastongmz/TPO.Api/blob/main/src/data/socialsData.js)
 
