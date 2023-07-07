@@ -1,19 +1,23 @@
 import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet'
 //import { DataGrid } from '@material-ui/core'
-import { DataGrid } from '@material-ui/data-grid'
+//import {  DataGrid } from '@material-ui/data-grid'
+import {  DataGrid, GridColDef } from '@mui/x-data-grid'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 
-import { AiOutlineHome, AiOutlineLogout, AiFillDelete } from "react-icons/ai";
+
+import { AiOutlineHome, AiOutlineLogout, AiFillDelete, AiFillStar } from "react-icons/ai";
 
 import './GridPage.css'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { gridData } from '../../data/gridData'
 import { headerData } from '../../data/headerData'
 import {getSolicitudByEmail, borrarSolicitud} from '../../api/solicitudes.api';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import {  Redirect } from "react-router-dom";
+import moment from 'moment';
+
 
 function GridPage() {
    
@@ -23,41 +27,72 @@ function GridPage() {
     const pageSize = 5;
     const setPageSize = 1;
 
-
+  
     const columns = [
-        { field: '_id', width: 100, headerClassName: 'super-app-theme--header' , hide: true},
-     /*   { field: 'nombre', headerName: 'Nombre', width: 200, headerClassName: theme.secondary },
-        { field: 'apellido', headerName: 'Nombre', width: 200, headerClassName: theme.secondary },
-        { field: 'empresa', headerName: 'Empresa', width: 200, headerClassName: theme.secondary },
-        { field: 'email', headerName: 'Email', width: 300, headerClassName: theme.secondary },*/
-        { field: 'telefono', headerName: 'Telefono', width: 300, headerClassName: theme.secondary },
-        { field: 'mensaje', hide: true},
-        {field: 'action', headerName: 'Action', with : 100,flex:1,
+        { field: '_id', minWidth: 100, headerClassName: 'customheadercell' , headerAlign: 'center', hide: true},
+        { field: 'fechaAlta', headerName: 'Fecha', width:120, headerAlign: 'center', valueFormatter: params => 
+        moment(params?.value).format("DD/MM/YYYY"), headerClassName:'customheadercell' },
+        { field: 'nombre', headerName: 'Nombre', width:140, headerAlign: 'center', headerClassName:'customheadercell'},
+        { field: 'apellido', headerName: 'Apellido', width:130,headerAlign: 'center', headerClassName: 'customheadercell' },
+       { field: 'empresa', headerName: 'Empresa', minWidth:50,headerAlign: 'center',  headerClassName: 'customheadercell' ,flex:1},
+        { field: 'email', headerName: 'Email', minWidth:250, headerAlign: 'center',headerClassName:'customheadercell'},
+        { field: 'telefono', headerName: 'Telefono', minWidth:150, headerAlign: 'center', headerClassName: 'customheadercell',flex:1 },
+        { field: 'mensaje', headerName: 'Mensaje',headerAlign: 'center', minWidth:350 , headerClassName: 'customheadercell'},
+      /*  {field: ' ', headerName:'',  minWidth:15,
+        renderCell: ({ id }) => {   
+      return [        
+          <AiFillStar className={classes.acction}  onClick={handleDeleteClick(id)}/>     
+        
+        ]
+    }}*/,
+        {field: '  ', headerName:'',  minWidth:15,
         renderCell: ({ id }) => {   
       return [
         
-          <AiFillDelete className={classes.delete}  onClick={handleDeleteClick(id)}/>
+          <AiFillDelete className={classes.acction}  onClick={handleDeleteClick(id)}/>
         
         ]
     }}]
    
 
-    const handleDeleteClick = (id) => () => {
-        console.log("paso: "+ id)
+    const handleDeleteClick = (id) => () => {        
         ///setRows(rows.filter((row) => row.id !== id));
-        //setData(data.filter((f)=>f.id !==id));
-
-      
-        borrarSolicitud(accessToken, id);                   
-    
-      
+        //setData(data.filter((f)=>f.id !==id));      
+        borrarSolicitud(accessToken, id);   
+        window.location.reload();          
       };
 
     const handlePageSizeChange = (event) => {
         setPageSize(Number(event.target.value));
+        
     };
 
-    const useStyles = makeStyles((t) => ({
+
+    
+    const useStyles = makeStyles((t) => ({   
+        customheadercell:{
+            color: theme.primary,  
+        },
+
+        acction: {
+            color: theme.secondary,         
+            padding: '7px',
+            borderRadius: '50%',
+            boxSizing: 'content-box',
+            fontSize: '1rem',
+            cursor: 'pointer',
+            boxShadow: theme.type === 'dark' ? '3px 3px 6px #ffffff40, -3px -3px 6px #00000050' : '3px 3px 6px #ffffff40, -3px -3px 6px #00000050',
+            transition: 'all 0.3s ease-in-out',
+            "&:hover":
+            {
+                color: theme.tertiary,
+                transform: 'scale(1.1)',
+            },
+            [t.breakpoints.down('sm')]: {
+                fontSize: '1.8rem',
+            },
+        },        
+
         search: {
             color: theme.secondary,
             position: 'absolute',
@@ -122,13 +157,10 @@ function GridPage() {
                 if (response.status == 401){
                     localStorage.setItem("auth", JSON.stringify(false));
                     window.location.replace('/');
-                } else{
-                //console.log("loadingDatosGrid " + JSON.stringify(response.product))
-                setData(response);
-                //setData(JSON.stringify(response.product));              
+                } else{                
+                setData(response);                
                 }
-
-        }
+                    }
             catch(error){
                 console.log(error);
             }
@@ -139,17 +171,11 @@ function GridPage() {
         loadingDatosGrid()  
 
          },[] )
-       //  debugger
-     // console.log("loadingDatosGrid2 " + JSON.stringify(data)) ;
-     // const modifiedData  =   JSON.stringify(data).replace("__", '')  ;
-     //const dataArray = JSON.parse(modifiedData);
-     ///console.log (dataArray)
+      
       const rows = data
 
         
-    return (
-        //Metodos
-        //loadingDatosGrid(),
+    return (        
         <div className="gridPage" style={{ backgroundColor: theme.secondary }}>
             <Helmet>
                 <title>{headerData.name} | Solicitudes</title>
@@ -166,22 +192,22 @@ function GridPage() {
             </div>
             <div className="gridPage--container"  >
             </div>
-            <div style={{ height: 400, width: '50%', backgroundColor: theme.tertiary80 }}>
-    
+            <div style={{ height: 400, width: '80%' , backgroundColor: theme.primary30, border: '2px solid #ddd',  borderRadius: '6px', alignItems: 'center'}}>    
 
-                <DataGrid                    
+                <DataGrid                          
                     getRowId={(row)=>row._id}
                     rows={rows}
                     columns={columns}
                     pageSize={pageSize}
-                    autoHeight={true}                    
+                    autoHeight={true}                                                  
                     onPageSizeChange={handlePageSizeChange}
                     rowsPerPageOptions={[5, 10, 20]}
-                    checkboxSelection
+                    checkboxSelection={false}
                     disableSelectionOnClick
                     disableColumnSelector
-                    disableColumnMenu
+                    disableColumnMenu={false}
                     disableDensitySelector
+                    disableColumResize={true}
                     getRowClassName={getRowClassName}
                 />
             </div>

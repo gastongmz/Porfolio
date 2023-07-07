@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { ThemeContext } from './contexts/ThemeContext';
-import { Main, LoginPage, GridPage } from './pages'
+import { Main, LoginPage, GridPage, UsuarioPage } from './pages'
 import { BackToTop } from './components'
 import ScrollToTop from './utils/ScrollToTop'
 import PrivateRoute from './utils/PrivateRoute';
@@ -24,7 +24,8 @@ function App() {
         <Switch>
           <Route path={pathServer + "/"} exact component={Main} />
           <Route path={pathServer + "/login"} exact component={LoginPage} />
-          <PrivateRoute component={GridPage} path={pathServer +"/grid"} exact />          
+          <PrivateRoute component={GridPage} path={pathServer +"/grid"} exact />  
+          <PrivateRoute component={UsuarioPage} path={pathServer +"/usuario"} exact />          
           <Redirect to="/" />
         </Switch>
       </Router>

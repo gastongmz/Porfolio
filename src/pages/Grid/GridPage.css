@@ -39,7 +39,7 @@
 }
 
 .grid--input {
-    width: 30%;
+    width: 40%;
     height: 2.75rem;
     outline: none;
     border: none;
@@ -48,7 +48,7 @@
 }
 
 .grid--input::placeholder {
-    color: white;
+    /*color: white;*/
 }
 
 .grids--container {
@@ -62,6 +62,12 @@
     gap: 4rem;   
 }
 
+.customheadercell {
+    font-weight: 400;    
+    font-style: --primary;    
+    color: #ffffff; /* Set the desired text color for the header cells */
+    /* Add any additional styles you want */
+  }
 
 
 @media (min-width: 992px) and (max-width: 1380px) {
