@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineSend, AiOutlineCheckCircle } from 'react-icons/ai';
+import login from '../../api/login.api';
 
 import './LoginPage.css'
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -96,32 +97,32 @@ function LoginPage() {
  
    const errors = {
      uname: "Usuario invalido",
-     pass: "Contraseña invalida"
+     pass: "Contraseña invalida",
+     noAutorizado :"Usuario no autorizado"
    };
  
-   const handleSubmit = (event) => {
+   const handleSubmit = async (event) => {
      //Prevent page reload
      event.preventDefault();
+     debugger
  
      var { uname, pass } = document.forms[0];
  
      // Find user login info
-     const userData = database.find((user) => user.username === uname.value);
+     //const userData = database.find((user) => user.username === uname.value);
+     let userData = await login(uname.value, pass.value);
+
  
      // Compare user info
-     if (userData) {
-       if (userData.password !== pass.value) {
-         // Invalid password         
-         localStorage.setItem("auth", JSON.stringify(false));
-         setErrorMessages({ name: "pass", message: errors.pass });
-       } else {        
+     if (userData.status == '200') {       
+        sessionStorage.setItem("access-token",userData.token);
         localStorage.setItem("auth", JSON.stringify(true));
          setIsSubmitted(true);
        }
-     } else {        
+      else {        
         localStorage.setItem("auth", JSON.stringify(false));
        // Username not found
-       setErrorMessages({ name: "uname", message: errors.uname });
+       setErrorMessages({ name: "pass", message: errors.noAutorizado });
      }
    };
 
@@ -158,7 +159,7 @@ function LoginPage() {
             <input
                 placeholder='Contraseña'
                 required  
-                defaultValue={'pass1'}
+                defaultValue={'12345'}
               
                 type='password'
                 name='pass'

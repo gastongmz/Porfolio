@@ -4,6 +4,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import isEmail from 'validator/lib/isEmail';
 import isMobilePhone from 'validator/lib/isMobilePhone';
 import { makeStyles } from '@material-ui/core/styles';
+import {usuarioData} from '../../data/usuarioData'
+
 import {
     FaTwitter,
     FaLinkedinIn,
@@ -23,6 +25,8 @@ import { HiOutlineLocationMarker } from 'react-icons/hi';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 
+import {crearSolicitud} from '../../api/solicitudes.api';
+
 import { socialsData } from '../../data/socialsData';
 import { contactsData } from '../../data/contactsData';
 import './Contacts.css';
@@ -32,12 +36,15 @@ function Contacts() {
 
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
+    const [empresa, setEmpresa] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
 
     const [success, setSuccess] = useState(false);
     const [errMsg, setErrMsg] = useState('');
+
+    const [usuarioPorfolio, setusuarioPorfolio] = useState(usuarioData.usuarioPorfolio);
 
     const { theme } = useContext(ThemeContext);
 
@@ -131,28 +138,53 @@ function Contacts() {
 
     const classes = useStyles();
 
+    
+    console.log("const usuarioPorfolio " + usuarioPorfolio)
+
     const handleContactForm = (e) => {
         e.preventDefault();
+        
 
         if (name && surname && email && phone && message) {
             if (isEmail(email)) {
                 if(isMobilePhone(phone)){
-
                 const responseData = {
                     name: name,
                     surname: surname,
+                    usuarioPorfolio: usuarioPorfolio,
+                    empresa: empresa,
                     phone: phone,
                     email: email,
                     message: message,
-                };                  
-                    setOpen(true);
+                };   
+                
+                
+                crearSolicitud(name, surname, usuarioPorfolio, empresa, phone, email, message).then((res)=>
+                    {
+                        debugger
+                        if (res == '201') { 
+                            setOpen(true);
                     setErrMsg('Solicitud enviado correctamente');
-                    setName('');
+                    setName('');                    
                     setSurname('');
+                    setEmpresa('');
                     setEmail('');
                     setPhone('');
-                    setMessage('');                  
-                    
+                    setMessage(''); 
+
+                        }else{
+                            setOpen(true);
+                    setErrMsg('No pudo procesar la solicitud');                    
+                    setName('');
+                    setSurname('');
+                    setEmpresa('');
+                    setEmail('');
+                    setPhone('');
+                    setMessage(''); 
+                        }
+                    }
+                    )   
+
                 {/*axios.post(contactsData.sheetAPI, responseData).then((res) => {
                     console.log('success');
                     setSuccess(true);
@@ -179,6 +211,7 @@ function Contacts() {
             setOpen(true);
         }
     };
+  
 
     return (
         <div
@@ -214,6 +247,19 @@ function Contacts() {
                                     onChange={(e) => setSurname(e.target.value)}
                                     type='text'
                                     name='Surname'
+                                    className={`form-input ${classes.input}`}
+                                />
+                            </div>
+                            <div className='input-container'>
+                                <label htmlFor='Empresa' className={classes.label}>
+                                    Empresa
+                                </label>
+                                <input
+                                    placeholder='Empresa'
+                                    value={empresa}
+                                    onChange={(e) => setEmpresa(e.target.value)}
+                                    type='text'
+                                    name='Empresa'
                                     className={`form-input ${classes.input}`}
                                 />
                             </div>

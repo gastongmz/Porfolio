@@ -4,29 +4,55 @@ import { Helmet } from 'react-helmet'
 import { DataGrid } from '@material-ui/data-grid'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import { AiOutlineHome, AiOutlineLogout } from "react-icons/ai";
+
+import { AiOutlineHome, AiOutlineLogout, AiFillDelete } from "react-icons/ai";
 
 import './GridPage.css'
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { gridData } from '../../data/gridData'
 import { headerData } from '../../data/headerData'
+import {getSolicitudByEmail, borrarSolicitud} from '../../api/solicitudes.api';
+import { useEffect, useState } from 'react';
+import {  Redirect } from "react-router-dom";
 
 function GridPage() {
    
     const { theme } = useContext(ThemeContext);
 
-    const rows = gridData;
+    //const rows = gridData;
     const pageSize = 5;
     const setPageSize = 1;
 
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 100, headerClassName: 'super-app-theme--header' },
-        { field: 'name', headerName: 'Nombre Apellido', width: 200, headerClassName: theme.secondary },
-        { field: 'email', headerName: 'Email', width: 300, headerClassName: theme.secondary },
-        { field: 'phone', headerName: 'Telefono', width: 300, headerClassName: theme.secondary },
-    ];
+        { field: '_id', width: 100, headerClassName: 'super-app-theme--header' , hide: true},
+     /*   { field: 'nombre', headerName: 'Nombre', width: 200, headerClassName: theme.secondary },
+        { field: 'apellido', headerName: 'Nombre', width: 200, headerClassName: theme.secondary },
+        { field: 'empresa', headerName: 'Empresa', width: 200, headerClassName: theme.secondary },
+        { field: 'email', headerName: 'Email', width: 300, headerClassName: theme.secondary },*/
+        { field: 'telefono', headerName: 'Telefono', width: 300, headerClassName: theme.secondary },
+        { field: 'mensaje', hide: true},
+        {field: 'action', headerName: 'Action', with : 100,flex:1,
+        renderCell: ({ id }) => {   
+      return [
+        
+          <AiFillDelete className={classes.delete}  onClick={handleDeleteClick(id)}/>
+        
+        ]
+    }}]
    
+
+    const handleDeleteClick = (id) => () => {
+        console.log("paso: "+ id)
+        ///setRows(rows.filter((row) => row.id !== id));
+        //setData(data.filter((f)=>f.id !==id));
+
+      
+        borrarSolicitud(accessToken, id);                   
+    
+      
+      };
+
     const handlePageSizeChange = (event) => {
         setPageSize(Number(event.target.value));
     };
@@ -87,8 +113,43 @@ function GridPage() {
         localStorage.setItem("auth", JSON.stringify(false));
     }
 
+    const [data, setData] = useState([]);
 
+    const accessToken = sessionStorage.getItem('access-token')
+    const loadingDatosGrid = async()  => {
+        try{
+                const response = await getSolicitudByEmail(accessToken);
+                if (response.status == 401){
+                    localStorage.setItem("auth", JSON.stringify(false));
+                    window.location.replace('/');
+                } else{
+                //console.log("loadingDatosGrid " + JSON.stringify(response.product))
+                setData(response);
+                //setData(JSON.stringify(response.product));              
+                }
+
+        }
+            catch(error){
+                console.log(error);
+            }
+        }
+        
+       useEffect(()=>{           
+
+        loadingDatosGrid()  
+
+         },[] )
+       //  debugger
+     // console.log("loadingDatosGrid2 " + JSON.stringify(data)) ;
+     // const modifiedData  =   JSON.stringify(data).replace("__", '')  ;
+     //const dataArray = JSON.parse(modifiedData);
+     ///console.log (dataArray)
+      const rows = data
+
+        
     return (
+        //Metodos
+        //loadingDatosGrid(),
         <div className="gridPage" style={{ backgroundColor: theme.secondary }}>
             <Helmet>
                 <title>{headerData.name} | Solicitudes</title>
@@ -106,12 +167,14 @@ function GridPage() {
             <div className="gridPage--container"  >
             </div>
             <div style={{ height: 400, width: '50%', backgroundColor: theme.tertiary80 }}>
+    
 
-                <DataGrid
+                <DataGrid                    
+                    getRowId={(row)=>row._id}
                     rows={rows}
                     columns={columns}
                     pageSize={pageSize}
-                    autoHeight={true}
+                    autoHeight={true}                    
                     onPageSizeChange={handlePageSizeChange}
                     rowsPerPageOptions={[5, 10, 20]}
                     checkboxSelection
