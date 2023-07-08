@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineSend, AiOutlineCheckCircle } from 'react-icons/ai';
-//import usuario from '../../api/usuario.api';
+import {creaUsuario} from '../../api/login.api';
 
 import './UsuarioPage.css'
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -113,7 +113,7 @@ function UsuarioPage() {
       };
   
       // Realizar llamada a la API
-      fetch('URL_DE_TU_API', {
+      /*fetch('URL_DE_TU_API', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -129,6 +129,23 @@ function UsuarioPage() {
         .catch(error => {
           console.error('Error:', error);
         });
+
+        */
+        creaUsuario(formData.nombre, formData.apellido, formData.email, formData.password ).then((res)=>
+        {                        
+            console.log("res:" +res.status)
+            if (res.status == '201') { 
+              alert("Usuarios creado correctamente.")
+              setNombre('')
+              setApellido('')
+              setEmail('')
+              setPassword('')
+              setRepetirPassword('')
+            }else{
+              alert("no pudo crear el usuario")
+            }
+        });
+       
     };
   
     return (

@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineSend, AiOutlineCheckCircle } from 'react-icons/ai';
-import login from '../../api/login.api';
+import { login }from '../../api/login.api';
 
 import './LoginPage.css'
 import { ThemeContext } from '../../contexts/ThemeContext';

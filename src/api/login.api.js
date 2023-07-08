@@ -20,4 +20,30 @@ const login = async (email,password) => {
     return jsonData;
 }
 
-export default login;
+
+const creaUsuario = async (nombre, apellido, email, password ) => {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  
+  var raw = JSON.stringify({
+    "name": nombre,
+    "lastname": apellido,
+    "email": email,
+    "password": password,
+  });
+  
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
+  
+  let response = await fetch("http://localhost:8080/api/usuarios/createUsuario", requestOptions);
+  let jsonData = await response.json();
+
+  return jsonData;
+}
+
+
+export { login, creaUsuario };
