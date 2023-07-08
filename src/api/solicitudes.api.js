@@ -43,10 +43,16 @@ const crearSolicitud= async (name, surname, usuarioPorfolio,  empresa, phone, em
     body: raw,
     redirect: 'follow'
   };
-  await fetch("http://localhost:8080/api/solicitudes", requestOptions)
-  .then(response => response.json())
+
+  let response = await fetch("http://localhost:8080/api/solicitudes", requestOptions);
+  let jsonData = await response.json();
+  console.log(jsonData)
+  return jsonData
+
+ /* await fetch("http://localhost:8080/api/solicitudes", requestOptions)
+  .then(response => response)
   .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+  .catch(error => console.log('error', error));*/
 }
 
 

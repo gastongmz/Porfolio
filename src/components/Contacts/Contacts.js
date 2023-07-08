@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Snackbar, IconButton, SnackbarContent } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import isEmail from 'validator/lib/isEmail';
@@ -157,12 +157,11 @@ function Contacts() {
                     email: email,
                     message: message,
                 };   
-                
-                
-                crearSolicitud(name, surname, usuarioPorfolio, empresa, phone, email, message).then((res)=>
-                    {
-                        debugger
-                        if (res == '201') { 
+
+               crearSolicitud(name, surname, usuarioPorfolio, empresa, phone, email, message).then((res)=>
+                    {                        
+                        //console.log("res:" +res.status)
+                        if (res.status == '201') { 
                             setOpen(true);
                     setErrMsg('Solicitud enviado correctamente');
                     setName('');                    
