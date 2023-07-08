@@ -16,8 +16,11 @@
     - EDUCACION
     - SKILLS
     - EXPERIENCIA <br />
-- CONTACTOS 
-
+- CONTACTOS
+<br />
+- LOGIN
+- SOLICITUDES 
+- USURIOS
 <br /><br />
 
 <br /> <br />
@@ -94,18 +97,20 @@ npm start
 
 <br />
 
-### login
+### Login
 <p align="center">
 <img src="https://github.com/gastongmz/Porfolio/blob/main/asset/login.png" alt="" width="650px"/>
 </p>
 
 <br />
+
 ### Solicitudes
 <p align="center">
 <img src="https://github.com/gastongmz/Porfolio/blob/main/asset/grilla.png" alt="" width="650px"/>
 </p>
 
 <br />
+
 ### Crear usuarios
 <p align="center">
 <img src="https://github.com/gastongmz/Porfolio/blob/main/asset/addusuario.png" alt="" width="650px"/>
