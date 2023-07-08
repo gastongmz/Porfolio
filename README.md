@@ -48,6 +48,56 @@ npm install
 ```
 npm start
 ```
+## Pagina
+
+### Landing
+<p align="center">
+<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/home.png" alt="" width="650px"/>
+</p>
+
+<br />
+
+### Landing
+<p align="center">
+<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/home.png" alt="" width="650px"/>
+</p>
+
+<br />
+
+### Sobre mi
+<p align="center">
+<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/sobremi.png" alt="" width="650px"/>
+</p>
+
+<br />
+
+
+### Formacion
+<p align="center">
+<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/formacion.png" alt="" width="650px"/>
+</p>
+
+<br />
+
+
+### Skils
+<p align="center">
+<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/skils.png" alt="" width="650px"/>
+</p>
+
+<br />
+
+### Experiencia
+<p align="center">
+<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/experiencia.png" alt="" width="650px"/>
+</p>
+
+<br />
+
+### Contactar
+<p align="center">
+<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/contactar.png" alt="" width="650px"/>
+</p>
 
 <br />
 
