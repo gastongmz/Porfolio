@@ -57,13 +57,6 @@ npm start
 
 <br />
 
-### Landing
-<p align="center">
-<img src="https://github.com/gastongmz/Porfolio/blob/main/asset/home.png" alt="" width="650px"/>
-</p>
-
-<br />
-
 ### Sobre mi
 <p align="center">
 <img src="https://github.com/gastongmz/Porfolio/blob/main/asset/sobremi.png" alt="" width="650px"/>
@@ -261,10 +254,7 @@ export const educationData = [
 ]
 ```
 # Hosting :globe_with_meridians:
-## Netlify
-| Site   | Docs  | Demo  |
-| :-------------: |:-------------: |:-------------: |
-| [Netlify](https://www.netlify.com/) | [3 ways to deploy React apps to Netlify](https://blog.logrocket.com/3-ways-to-deploy-react-apps-to-netlify/) | [Youtube](https://www.youtube.com/watch?v=sGBdp9r2GSg) |
+
 
 # SEO :spider:
 ### La optimización de motores de búsqueda (SEO) es el proceso de mejorar la calidad y la cantidad del tráfico del sitio web a un sitio web o una página web desde los motores de búsqueda. 
